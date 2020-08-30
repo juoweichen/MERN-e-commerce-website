@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "worldwidev3",
   "scripts": {
-    "install": "npm run install:server",
+    "install": "npm run install:server && npm run install:client",
     "install:server": "cd server && npm i",
+    "install:client": "cd client && npm i",
     "start": "npm run start:server",
+    "start:con": "concurrently \"npm run start:server\" \"npm run start:client\"",
     "start:server": "cd server && npm start",
-    "test": "npm run test:server",
-    "test:server": "cd server && npm test"
+    "start:client": "cd client && npm start",
+    "test": "npm run test:server && npm run test:client",
+    "test:server": "cd server && npm test",
+    "test:client": "cd client && npm test"
   },
   "repository": {
     "type": "git",
