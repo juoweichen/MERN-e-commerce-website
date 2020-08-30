@@ -8,7 +8,8 @@ console.log('Currenet node environment: ', process.env.NODE_ENV);
 app.use(express.json());
 require('./src/init/env')();	// check env variable
 require('./src/init/cors')(app);
-require('./src/init/db')();
+if (process.env.NODE_ENV !== 'test')
+	require('./src/init/db')();
 
 // Routes
 const user = require('./src/routes/user');
