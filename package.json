@@ -1,0 +1,30 @@
+{
+  "name": "worldwidev3",
+  "version": "1.0.0",
+  "description": "worldwidev3",
+  "scripts": {
+    "install": "npm run install:server",
+    "install:server": "cd server && npm i",
+    "start": "npm run start:server",
+    "start:server": "cd server && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pootitan/worldwidev3.git"
+  },
+  "keywords": [
+    "TravisCI",
+    "MERN",
+    "cypress",
+    "Heroku"
+  ],
+  "author": "Juo Wei Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pootitan/worldwidev3/issues"
+  },
+  "homepage": "https://github.com/pootitan/worldwidev3#readme",
+  "dependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
