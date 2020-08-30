@@ -7,7 +7,4 @@ deploy:
   app: worldwidev3
   on:
     repo: pootitan/worldwidev3
-  skip_cleanup: 'true'
-
-
-	
+  skip_cleanup: 'true'	
