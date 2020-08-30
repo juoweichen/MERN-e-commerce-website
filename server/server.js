@@ -7,6 +7,11 @@ console.log('Currenet node environment: ', process.env.NODE_ENV);
 app.use(express.json());
 require('./src/init/cors')(app);
 
+// Routes
+const user = require('./src/routes/user');
+
+app.use('/api/user', user);
+
 // Listening to port
 const port = process.env.PORT ?
 	process.env.PORT :
