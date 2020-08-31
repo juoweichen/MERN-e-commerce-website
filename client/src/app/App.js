@@ -25,6 +25,7 @@ function App() {
 
   return (
     <div className="App">
+      <p>Welcome to worldwide</p>
       {isLoading ?
         <p>Loading...</p> :
         categories.map(category => <p>{category.name}</p>)
