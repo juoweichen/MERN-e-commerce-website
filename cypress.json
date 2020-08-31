@@ -1,6 +1,3 @@
 {
-	"baseUrl": "http://localhost:5000",
-	"env": {
-		"NODE_ENV": "test"
-	}
+	"baseUrl": "http://localhost:5001"
 }

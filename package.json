@@ -15,7 +15,7 @@
     "test": "npm run test:server && npm run test:client && npm run test:e2e",
     "test:server": "cd server && npm test",
     "test:client": "cd client && npm test",
-    "test:e2e": "start-server-and-test start http://localhost:5000 cy:run",
+    "test:e2e": "cross-env NODE_ENV=test start-server-and-test start http://localhost:5001 cy:run",
     "heroku-postbuild": "cd client && npm run build",
     "cy:open": "cypress open",
     "cy:run": "cypress run"
@@ -40,6 +40,7 @@
     "concurrently": "^5.3.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "cypress": "^5.0.0",
     "start-server-and-test": "^1.11.3"
   }

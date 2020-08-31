@@ -12,3 +12,5 @@ install:
   - npm install
   - npm run install:server
   - npm run install:client
+before_script:
+  - npm run heroku-postbuild
