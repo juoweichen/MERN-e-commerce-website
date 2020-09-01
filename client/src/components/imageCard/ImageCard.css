@@ -1,0 +1,13 @@
+#merch-page-link {
+  text-decoration: none;
+  color: black;
+}
+
+.card {
+  margin: 0.5rem;
+  max-width: 30%;
+}
+
+.card .card-body {
+  padding: 0.2rem;
+}

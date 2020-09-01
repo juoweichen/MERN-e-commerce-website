@@ -1,7 +1,7 @@
-import axios from 'axios';
+import http from './http'
 
-const apiUrl = `/api/category/public`;
+const apiUrl = '/api/category/public';
 
 export function getCategories() {
-	return axios.get(`${apiUrl}/all`);
+	return http.get(`${apiUrl}/all`);
 }
