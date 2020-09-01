@@ -2,10 +2,9 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-console.log('Currenet node environment: ', process.env.NODE_ENV);
-
-// middleware
+// init
 app.use(express.json());
+console.log('Currenet node environment: ', process.env.NODE_ENV);
 require('./src/init/env')();	// check env variable
 require('./src/init/cors')(app);
 if (process.env.NODE_ENV !== 'test')
@@ -13,10 +12,10 @@ if (process.env.NODE_ENV !== 'test')
 
 // Routes
 const user = require('./src/routes/user');
-const category = require('./src/routes/category');
+// const category = require('./src/routes/category');
 
 app.use('/api/user', user);
-app.use('/api/category', category);
+// app.use('/api/category', category);
 
 // Listening to port
 const port = process.env.PORT ?
