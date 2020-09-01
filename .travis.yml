@@ -7,10 +7,13 @@ deploy:
   app: worldwidev3
   on:
     repo: pootitan/worldwidev3
-  skip_cleanup: 'true'	
+  skip_cleanup: 'true'
 install:
-  - npm install
-  - npm run install:server
-  - npm run install:client
+- npm install
+- npm run install:server
+- npm run install:client
 before_script:
-  - npm run heroku-postbuild
+- npm run heroku-postbuild
+env:
+  global:
+    secure: YeIF4LDqTa8JsxQK+LbNJFNI9xA1vi0DH12SLV2PUKU4KdGxlXsnmXIUe9rfwwkLkKNRNeO3MHKev1RWhbkg9Q0GwxKfngMTEaRTnhypLMbEGopURjMY/Tf6QQm3Ls1WoxBHBP6rajO7OctFgh1MHV0ItTJxYddn9cK4/zthBNwqCKlkVCWRi8R54QVgi+fgtWS0xlXUXglDwMx5HYPtebi2S3L3UUuW65T2Yc1YwW+JDKBtqmegk/jzPLuNP8K8jFVxVFb7V4GYdgN8Y+cra9v3b405p6FcnoCMIEL5+5EEjyxNPhslQXQoDtVTxOTvTJW1RVqp+oroPYvl9GcNgmhEMByp3Ctle8n+d+YwjQRk98c7bmkk+cbEW4cZiBPQE8ajHm5/zLSsX/wnsQiz6LDSa8A3fpAY0N6ut8Cihljhum69tD/F6wLvLLQxjFuY9ItauH1AJx8xkM6hqlY4CfO9ZpOtPEOzAhoCG/sEHJNU8+leJRmeXkDSME05MYP5x74WNdxWhJ4r7hjcGzD/kwwI8lI5j0c8KfIWcVYJvNexqx97HPbtB9UKRDxIwAXR0E6BQTn4YBhqTfwPbl4ZxPyS1QTIFL1rrKaFQ7VU7HzZrCEmqdsdLLwaRH1nMBGp5YCyemCL4iWisNa0mPffDW+HlqlnVxrh0oV2nBDvWh4=
