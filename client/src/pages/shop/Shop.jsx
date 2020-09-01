@@ -1,16 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-function Shop(props) {
+function Shop() {
 	return (
 		<div>
-
+			<p>Shop</p>
 		</div>
 	)
-}
-
-Shop.propTypes = {
-
 }
 
 export default Shop
