@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { inputWrapper } from './Input';
 
-import user from 'utils/test/userAction';
+import user from '../../utils/test/userAction';
 
 describe('Input component unit testing', () => {
 	const state = {

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, } from '@testing-library/react';
 
 import Selector from './Selector';
-import user from 'utils/test/userAction';
+import user from '../../utils/test/userAction';
 
 function createNumberOptions(count) {
 	const options = [];

@@ -4,11 +4,11 @@ import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom'
 import Header from './header/Header';
 import Footer from './footer/Footer';
 
-import Shop from 'pages/shop/Shop';
-import Login from 'pages/login/Login';
-import Register from 'pages/register/Register';
-import Logout from 'pages/logout/Logout';
-import NotFound from 'pages/notFound/NotFound';
+import Shop from '../pages/shop/Shop';
+import Login from '../pages/login/Login';
+import Register from '../pages/register/Register';
+import Logout from '../pages/logout/Logout';
+import NotFound from '../pages/notFound/NotFound';
 
 import './App.css';
 

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { submitWrapper } from './Submit';
 import joi from 'joi';
 
-import user from 'utils/test/userAction';
+import user from '../../utils/test/userAction';
 
 describe('Submit component unit testing', () => {
 	const state = {

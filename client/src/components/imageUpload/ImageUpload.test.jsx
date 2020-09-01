@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, } from '@testing-library/react';
 
 import ImageUpload from './ImageUpload';
-import user from 'utils/test/userAction';
+import user from '../../utils/test/userAction';
 
 describe('ImageUpload component unit test', () => {
 	let label = 'upload a image';

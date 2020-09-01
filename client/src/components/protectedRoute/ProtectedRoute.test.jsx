@@ -2,9 +2,9 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 
 import ProtectedRoute from './ProtectedRoute';
-import { renderWithRouter } from 'utils/test/router';
+import { renderWithRouter } from '../../utils/test/router';
 
-jest.mock('services/user');
+jest.mock('../../services/user');
 
 const userPage = () => <h1>User Page, only login user or admin can access</h1>
 const loginPage = () => <h1>Login page, redirect anonymous user to here</h1>

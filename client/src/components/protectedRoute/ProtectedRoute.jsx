@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import user from "services/user";
+
+import user from "../../services/user";
 
 /**
  * Check authLevel of current user, 

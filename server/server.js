@@ -28,12 +28,12 @@ const server = app.listen(port, () => {
 
 // Serve static files from the React frontend app
 // if (process.env.NODE_ENV === 'production') {
-const clinetPath = path.join(__dirname, '../client/build');
+const clinetPath = path.join(__dirname, '/../client/build');
 console.log('Serve client build at: ', clinetPath);
 app.use(express.static(clinetPath))
 // Anything that doesn't match the above, send back index.html
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname + '../client/build/index.html'))
+	res.sendFile(path.join(__dirname + '/../client/build/index.html'))
 })
 // }
 

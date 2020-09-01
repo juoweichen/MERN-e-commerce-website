@@ -1,4 +1,4 @@
-import getMock from 'utils/test/getMock';
+import getMock from '../../utils/test/getMock';
 
 export default {
 	getCurrent: jest.fn(() => {

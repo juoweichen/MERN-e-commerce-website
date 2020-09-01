@@ -3,9 +3,9 @@ import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import joi from 'joi';
 
-import { inputWrapper } from 'components/input/Input';
-import { submitWrapper } from 'components/submit/Submit';
-import user from 'services/user';
+import { inputWrapper } from '../../components/input/Input';
+import { submitWrapper } from '../../components/submit/Submit';
+import user from '../../services/user';
 
 export default function Login() {
 	const [account, setAccount] = useState({

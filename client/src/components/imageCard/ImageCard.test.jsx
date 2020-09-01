@@ -2,12 +2,12 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 
 import ImageCard from './ImageCard';
-import { getImageByMerchId } from 'services/image';
-import user from 'utils/test/userAction';
-import { waitForLoadingDone } from 'utils/test/async';
-import { renderWithRouter } from 'utils/test/router';
+import { getImageByMerchId } from '../../services/image';
+import user from '../../utils/test/userAction';
+import { waitForLoadingDone } from '../../utils/test/async';
+import { renderWithRouter } from '../../utils/test/router';
 
-jest.mock('services/image');
+jest.mock('../../services/image');
 
 describe('ImageCard unit testing', () => {
 	let history;

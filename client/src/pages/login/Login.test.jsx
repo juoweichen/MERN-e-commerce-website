@@ -1,13 +1,13 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 
-import http from 'services/http';
-import user from 'utils/test/userAction';
-import { renderWithRouter } from 'utils/test/router';
-import { waitForErrorMessage } from 'utils/test/async';
+import http from '../../services/http';
+import user from '../../utils/test/userAction';
+import { renderWithRouter } from '../../utils/test/router';
+import { waitForErrorMessage } from '../../utils/test/async';
 import Login from './Login';
 
-jest.mock('services/http');
+jest.mock('../../services/http');
 
 function fillInAndClick(account) {
 	user.type('Email', account.email);

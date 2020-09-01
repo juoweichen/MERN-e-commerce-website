@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 
 import ItemList from './ItemList';
-import user from 'utils/test/userAction';
+import user from '../../utils/test/userAction';
 
 describe('ItemList unit testing', () => {
 	const mockItems = [

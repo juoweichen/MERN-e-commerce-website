@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 
 import Header from './Header';
-import getMock from 'utils/test/getMock';
+import getMock from '../../utils/test/getMock';
 
 describe('Rendering', () => {
 	let mockUser;

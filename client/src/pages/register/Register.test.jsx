@@ -1,12 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import http from 'services/http';
-import user from 'utils/test/userAction';
-import { waitForErrorMessage } from 'utils/test/async';
+import http from '../../services/http';
+import user from '../../utils/test/userAction';
+import { waitForErrorMessage } from '../../utils/test/async';
 import Register from './Register';
 
-jest.mock('services/http');
+jest.mock('../../services/http');
 
 function fillInAndClick(account) {
 	user.type('Email', account.email);
