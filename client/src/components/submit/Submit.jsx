@@ -11,27 +11,17 @@ function validate(data, schema) {
 	return errRes;
 }
 
-async function handleSubmit(e, state, schema, service) {
+async function handleSubmit(e, state, schema, doSubmit) {
 	e.preventDefault();
 	const invalidError = validate(state.data, schema);
 	if (invalidError) return state.setError({ ...invalidError });
-
-	try {
-		await service(state.data);	// Do submit to server
-		window.location = '/';
-	}
-	catch (ex) {
-		if (ex.response) {
-			const errors = { ...state.error, email: ex.response.data.error };
-			state.setError(errors);
-		}
-	}
+	doSubmit();	// call api service here
 }
 
-export function submitWrapper(text, state, schema, service) {
+export function submitWrapper(text, state, schema, doSubmit) {
 	return <Submit
 		text={text}
-		onClickHandler={e => handleSubmit(e, state, schema, service)}
+		onClickHandler={e => handleSubmit(e, state, schema, doSubmit)}
 	/>
 }
 

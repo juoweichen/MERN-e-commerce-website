@@ -3,9 +3,12 @@ import { Container, Row, Col, Nav, Navbar, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobeAsia, faCartArrowDown, faTools } from '@fortawesome/free-solid-svg-icons'
 
+import { useAuth } from "../../contexts/auth";
 import './Header.css';
 
-export default function Header({ user }) {
+export default function Header() {
+	const { user } = useAuth();
+
 	return (
 		<header className='header' data-testid='component-header'>
 			<Navbar bg="light" expand="lg">

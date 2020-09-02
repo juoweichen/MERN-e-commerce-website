@@ -4,12 +4,12 @@ import jwtDecode from 'jwt-decode';
 const apiUrl = '/api/user/public';
 const tokenKey = 'token';
 
-async function login(account) {
-	const response = await http.post(`${apiUrl}/login`, {
+function login(account) {
+	return http.post(`${apiUrl}/login`, {
 		email: account.email,
 		password: account.password
 	})
-	loginWithJwt(response.headers["x-auth-token"]);
+	// loginWithJwt(response.headers["x-auth-token"]);
 }
 
 async function register(account) {
@@ -20,6 +20,20 @@ async function register(account) {
 		password2: account.password2
 	})
 	loginWithJwt(response.headers["x-auth-token"]);
+}
+
+function verifyJwt(jwt) {
+	// return http.post(`${apiUrl}/verify`, { jwt })
+	return ({
+		headers: {
+			"x-auth-token": "123123"
+		},
+		data: {
+			username: 'usertest',
+			password: '123123123',
+			email: 'usertest@gmail.com'
+		}
+	})
 }
 
 function loginWithJwt(jwtToken) {
@@ -52,4 +66,5 @@ export default {
 	getCurrent,
 	getJwt,
 	logout,
+	verifyJwt,
 }

@@ -6,8 +6,10 @@ import joi from 'joi';
 import { inputWrapper } from '../../components/input/Input';
 import { submitWrapper } from '../../components/submit/Submit';
 import user from '../../services/user';
+import { useAuth } from '../../contexts/auth';
 
 export default function Login() {
+	const { loginUser } = useAuth();
 	const [account, setAccount] = useState({
 		email: '',
 		password: ''
@@ -36,6 +38,20 @@ export default function Login() {
 			.label('Password')
 	})
 
+	async function doSubmit() {
+		try {
+			const response = await user.login(account);
+			loginUser(response);
+			window.location = '/';
+		}
+		catch (ex) {
+			if (ex.response) {
+				const errors = { ...state.error, email: ex.response.data.error };
+				state.setError(errors);
+			}
+		}
+	}
+
 	return (
 		<Form className='container' data-testid='page-login'>
 			{inputWrapper('email', 'email', 'Email', state)}
@@ -43,7 +59,7 @@ export default function Login() {
 			<Link to="/register" className='register-link'>
 				Not register yet?
 			</Link>
-			{submitWrapper('Login', state, schema, user.login)}
+			{submitWrapper('Login', state, schema, doSubmit)}
 		</Form>
 	)
 }

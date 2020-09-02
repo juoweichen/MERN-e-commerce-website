@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "server": "nodemon server.js",
     "test": "jest --coverage --colors --runInBand --detectOpenHandles",
     "test:watch": "jest --coverage --colors --watchAll --runInBand --detectOpenHandles"
   },
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "jest": "^26.4.2",
+    "nodemon": "^2.0.4",
     "supertest": "^4.0.2"
   }
 }
