@@ -4,11 +4,11 @@ const path = require('path');
 
 // init
 app.use(express.json());
-console.log('Currenet node environment: ', process.env.NODE_ENV);
 require('./src/init/env')();	// check env variable
 require('./src/init/cors')(app);
 if (process.env.NODE_ENV !== 'test')
 	require('./src/init/db')();
+console.log('Currenet node environment: ', process.env.NODE_ENV);
 
 // Routes
 const user = require('./src/routes/user');

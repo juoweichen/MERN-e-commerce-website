@@ -20,7 +20,7 @@ describe('ImageUpload component unit test', () => {
 
 	it('Shoulde render file upload field and upload button', () => {
 		// a sentence must include 'upload' and 'image'
-		expect(screen.getByLabelText(/(?=.*\bupload\b)(?=.*\bimage\b).*/i))
+		expect(screen.getByLabelText(inputLabelReg))
 		expect(screen.getByRole('button', { name: /upload/i }))
 	})
 

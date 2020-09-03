@@ -6,10 +6,8 @@ import joi from 'joi';
 import { inputWrapper } from '../../components/input/Input';
 import { submitWrapper } from '../../components/submit/Submit';
 import user from '../../services/user';
-import { useAuth } from '../../contexts/auth';
 
 export default function Login() {
-	const { loginUser } = useAuth();
 	const [account, setAccount] = useState({
 		email: '',
 		password: ''
@@ -41,7 +39,7 @@ export default function Login() {
 	async function doSubmit() {
 		try {
 			const response = await user.login(account);
-			loginUser(response);
+			user.loginWithJwt(response.headers["x-auth-token"]);
 			window.location = '/';
 		}
 		catch (ex) {

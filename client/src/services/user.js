@@ -23,17 +23,19 @@ async function register(account) {
 }
 
 function verifyJwt(jwt) {
-	// return http.post(`${apiUrl}/verify`, { jwt })
-	return ({
-		headers: {
-			"x-auth-token": "123123"
-		},
-		data: {
-			username: 'usertest',
-			password: '123123123',
-			email: 'usertest@gmail.com'
-		}
-	})
+	return http.get(`${apiUrl}/verify`,
+		{ headers: { 'x-auth-token': jwt } }
+	);
+	// return ({
+	// 	headers: {
+	// 		"x-auth-token": "123123"
+	// 	},
+	// 	data: {
+	// 		username: 'usertest',
+	// 		password: '123123123',
+	// 		email: 'usertest@gmail.com'
+	// 	}
+	// })
 }
 
 function loginWithJwt(jwtToken) {

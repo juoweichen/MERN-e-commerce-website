@@ -2,6 +2,7 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+const authMW = require('../../middlewares/auth');
 const UserModel = require('../../models/user');
 const CartModel = require('../../models/cart');
 const userValidator = require('../../validators/user');
@@ -85,6 +86,24 @@ router.post('/login', async function (req, res) {
 		.header('x-auth-token', token)
 		.header("access-control-expose-headers", "x-auth-token")
 		.send(user);
+})
+
+/**
+ * Verify localstorage jwt, authMW will verify is token valid
+ * We need to verify if user is exist in db
+ * @req - header: x-auth-token with user level authentication
+ * @res - header: same x-auth-token
+ * 			- body: user data
+ */
+router.get('/verify', [authMW], async (req, res) => {
+	UserModel.findById(req.user._id, (err, user) => {
+		if (err) return res.status(500).send(errorResponse(err));
+		if (!user) return res.status(404).send(errorResponse('jwt user not exist'));
+		res.status(200)
+			.header('x-auth-token', req.header('x-auth-token'))
+			.header("access-control-expose-headers", "x-auth-token")
+			.send(req.user)
+	})
 })
 
 module.exports = router;

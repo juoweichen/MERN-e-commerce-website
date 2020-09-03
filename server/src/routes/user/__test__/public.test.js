@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 
 const db = require('../../../utils/test/dbHandler');
 const insert = require('../../../utils/test/insert');
+const getMock = require('../../../utils/test/getMock');
 
 const endPoint = '/api/user/public/'
 
@@ -151,6 +152,61 @@ describe(`${endPoint}`, () => {
 					password: '123123',
 					email: 'userNotExist@gmail.com'
 				});
+			expect(res.body.error).toBeDefined();
+			expect(res.status).toBe(404);
+		})
+	})
+
+	describe('GET /verify - verify user jwt', () => {
+		let mockUser;
+		let mockToken;
+
+		beforeEach(async () => {
+			mockUser = await insert.user({
+				username: 'user1',
+				password: '123123',
+				email: 'user1@gmail.com'
+			});
+			mockToken = getMock.jwt(mockUser.toObject());
+		})
+
+		it('should return 200 if verification success', async () => {
+			const res = await request(server)
+				.get(`${endPoint}/verify`)
+				.set('x-auth-token', mockToken);
+			expect(res.body.error).not.toBeDefined();
+			expect(res.status).toBe(200);
+			expect(res.body.email).toBe('user1@gmail.com');
+			expect(res.header['x-auth-token']).toBeDefined();
+			// check payload
+			const decoded = jwt.verify(res.header['x-auth-token'], process.env.JWT_PRIVATE_KEY);
+			expect(decoded.username).toBe('user1');
+		})
+
+		it('should return 401 if token has not provided', async () => {
+			const res = await request(server)
+				.get(`${endPoint}/verify`)
+			expect(res.body.error).toBeDefined();
+			expect(res.status).toBe(401);
+		})
+
+		it('should return 498 if token is invalid', async () => {
+			const res = await request(server)
+				.get(`${endPoint}/verify`)
+				.set('x-auth-token', 'mudamudmudamudaumdaudmuamduadaudm');
+			expect(res.body.error).toBeDefined();
+			expect(res.status).toBe(498);
+		})
+
+		it('should return 404 if jwt user is not exist', async () => {
+			const mockNotExistUserToken = getMock.jwt({
+				username: 'ghost',
+				email: 'ghost@gmail.com',
+				password: '123123'
+			});
+			const res = await request(server)
+				.get(`${endPoint}/verify`)
+				.set('x-auth-token', mockNotExistUserToken);
 			expect(res.body.error).toBeDefined();
 			expect(res.status).toBe(404);
 		})

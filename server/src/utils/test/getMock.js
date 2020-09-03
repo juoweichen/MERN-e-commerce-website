@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 function getMockToken(obj) {
 	return jwt.sign(
 		obj,
-		process.env.JWT_PRIVATE_KEY
+		process.env.JWT_PRIVATE_KEY	// TODO: more generic
 	)
 }
 

@@ -3,8 +3,6 @@ import { createContext, useContext } from 'react';
 const initState = {
 	isLogin: false,
 	user: null,
-	loginUser: () => { },
-	logoutUser: () => { },
 	jwt: ''
 }
 

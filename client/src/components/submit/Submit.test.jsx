@@ -15,28 +15,27 @@ describe('Submit component unit testing', () => {
 		test: joi.string(),
 		otherData: joi.number()
 	})
-	const service = jest.fn();
+	const onSubmit = jest.fn();
 
 	afterEach(() => {
 		jest.clearAllMocks();
 	})
 
 	test('Should render Test button', () => {
-		render(submitWrapper('Test', state, schema, service));
+		render(submitWrapper('Test', state, schema, onSubmit));
 		expect(screen.getByText(/test/i)).toBeDefined();
 	})
 
-	test('Should call service if button clicked', () => {
-		render(submitWrapper('Test', state, schema, service));
+	test('Should call onSubmit if button clicked', () => {
+		render(submitWrapper('Test', state, schema, onSubmit));
 		user.click(/test/i);
-		expect(service).toHaveBeenCalled();
-		expect(service).toHaveBeenCalledWith(state.data);
+		expect(onSubmit).toHaveBeenCalled();
 	})
 
-	test('Should not call service if validation faieled', () => {
+	test('Should not call onSubmit if validation faieled', () => {
 		state.data = { ...state.data, otherData: 'shouldnotbeastring' };
-		render(submitWrapper('Test', state, schema, service));
+		render(submitWrapper('Test', state, schema, onSubmit));
 		user.click(/test/i);
-		expect(service).not.toHaveBeenCalled();
+		expect(onSubmit).not.toHaveBeenCalled();
 	})
 })

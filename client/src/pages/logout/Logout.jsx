@@ -1,13 +1,12 @@
 import { useEffect } from 'react'
-import { useAuth } from '../../contexts/auth';
+
+import user from '../../services/user';
 
 export default function Logout() {
-	const { logoutUser } = useAuth();
-
 	useEffect(() => {
-		logoutUser();
+		user.logout();
 		window.location = '/';
-	}, [logoutUser])
+	}, [])
 
 	return (
 		null
