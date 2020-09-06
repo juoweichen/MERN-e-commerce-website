@@ -16,6 +16,9 @@ const userSchema = new mongoose.Schema({
 	cartid: {
 		type: String,
 		required: true
+	},
+	isAdmin: {
+		type: Boolean
 	}
 })
 module.exports = mongoose.model('user', userSchema);

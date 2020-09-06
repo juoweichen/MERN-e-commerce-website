@@ -9,23 +9,22 @@ function login(account) {
 		email: account.email,
 		password: account.password
 	})
-	// loginWithJwt(response.headers["x-auth-token"]);
 }
 
 async function register(account) {
-	const response = await http.post(`${apiUrl}/register`, {
+	return http.post(`${apiUrl}/register`, {
 		email: account.email,
 		username: account.username,
 		password: account.password,
 		password2: account.password2
 	})
-	loginWithJwt(response.headers["x-auth-token"]);
 }
 
 function verifyJwt(jwt) {
 	return http.get(`${apiUrl}/verify`,
 		{ headers: { 'x-auth-token': jwt } }
 	);
+	// KEEP for mock
 	// return ({
 	// 	headers: {
 	// 		"x-auth-token": "123123"

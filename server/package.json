@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
+    "testServer": "cross-env NODE_ENV=test node server.js",
     "test": "jest --coverage --colors --runInBand --detectOpenHandles",
     "test:watch": "jest --coverage --colors --watchAll --runInBand --detectOpenHandles"
   },
@@ -20,6 +21,7 @@
     "mongodb-memory-server": "^6.6.7",
     "mongoose": "^5.10.2",
     "mongoose-int32": "^0.4.1",
+    "mongoose-seed": "^0.6.0",
     "path": "^0.12.7"
   },
   "devDependencies": {
