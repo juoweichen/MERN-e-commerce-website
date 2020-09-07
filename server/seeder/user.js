@@ -5,8 +5,10 @@ const getMock = require('../src/utils/test/getMock');
 
 const dbUrl = process.env.DB_URL;
 if (!dbUrl) throw new Error('DB_URL not found');
+const dbName = dbUrl.match(/(?<=.net\/)(.*?)(?=\?)/)[0];
 
-seeder.connect(dbUrl, () => {
+seeder.connect(dbUrl, { useUnifiedTopology: true }, () => {
+	console.log(`current db: `, dbName)
 	// Load Mongoose models
 	// NOTE: Must place in server, otherwise mongoose will call error
 	// 			 -> Models not registered in Mongoose
@@ -18,6 +20,7 @@ seeder.connect(dbUrl, () => {
 	seeder.clearModels(['user', 'cart'], async () => {
 		// Callback to populate DB once collections have been cleared
 		seeder.populateModels(await getSeedData(), () => {
+			console.log('Seeding completed, db disconnected');
 			seeder.disconnect();
 		});
 	});

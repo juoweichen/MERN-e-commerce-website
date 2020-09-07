@@ -50,7 +50,6 @@ export default function Register() {
 	async function doSubmit() {
 		try {
 			const response = await user.register(account);
-			console.log(response.data);
 			user.loginWithJwt(response.headers["x-auth-token"]);
 			window.location = '/';
 		}

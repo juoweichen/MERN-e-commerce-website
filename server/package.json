@@ -8,7 +8,8 @@
     "server": "nodemon server.js",
     "testServer": "cross-env NODE_ENV=test node server.js",
     "test": "jest --coverage --colors --runInBand --detectOpenHandles",
-    "test:watch": "jest --coverage --colors --watchAll --runInBand --detectOpenHandles"
+    "test:watch": "jest --coverage --colors --watchAll --runInBand --detectOpenHandles",
+    "seed:user": "node seeder/user.js"
   },
   "author": "Juo Wei Chen",
   "license": "ISC",

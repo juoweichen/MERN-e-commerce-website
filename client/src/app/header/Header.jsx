@@ -36,7 +36,7 @@ export default function Header() {
 							<Col></Col>
 							{user ?
 								<Col xs='auto'>
-									<p id='username'>Welcome, {user.username}</p>
+									<p id='welcome-user'>Welcome, {user.username}</p>
 								</Col> :
 								<Col></Col>
 							}

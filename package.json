@@ -21,7 +21,7 @@
     "heroku-postbuild": "cd client && npm run build",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "seed:user": "cd server && node seeder/user.js"
+    "seed:user": "cd server && npm run seed:user"
   },
   "repository": {
     "type": "git",

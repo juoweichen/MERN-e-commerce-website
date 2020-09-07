@@ -42,16 +42,16 @@ router.post('/register', async function (req, res) {
 	if (!newCart)
 		return res.status(500).send(errorResponse('Unable to create a new cart'));
 	// create new user, crypt user password
-	const newUser = {
+	const newUser = new UserModel({	// NOTE: UserModel will auto-generate id
 		username: req.body.username,
 		password: req.body.password,
 		email: req.body.email,
 		cartid: newCart._id
-	}
+	})
 	const salt = await bcrypt.genSalt(10);
 	newUser.password = await bcrypt.hash(newUser.password, salt);
 	// Generate token
-	const token = jwt.sign(newUser, process.env.JWT_PRIVATE_KEY);
+	const token = jwt.sign(newUser.toObject(), process.env.JWT_PRIVATE_KEY);
 	// create documents in db
 	UserModel.create(newUser)
 		.then(result => res.status(200)
