@@ -2,7 +2,7 @@ const Joi = require('joi');
 
 module.exports = (image) => {
 	const imageSchema = Joi.object({
-		fieldName: Joi.string(),
+		fieldname: Joi.string(),
 		originalname: Joi.string(),
 		encoding: Joi.string(),
 		mimetype: Joi.string(),

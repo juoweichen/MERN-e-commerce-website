@@ -12,10 +12,14 @@ console.log('Currenet node environment: ', process.env.NODE_ENV);
 
 // Routes
 const user = require('./src/routes/user');
-// const category = require('./src/routes/category');
+const category = require('./src/routes/category');
+const merch = require('./src/routes/merch');
+const image = require('./src/routes/image');
 
 app.use('/api/user', user);
-// app.use('/api/category', category);
+app.use('/api/category', category);
+app.use('/api/merch', merch);
+app.use('/api/image', image);
 
 // Listening to port
 const port = process.env.PORT ?

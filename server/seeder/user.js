@@ -6,6 +6,7 @@ const getMock = require('../src/utils/test/getMock');
 const dbUrl = process.env.DB_URL;
 if (!dbUrl) throw new Error('DB_URL not found');
 const dbName = dbUrl.match(/(?<=.net\/)(.*?)(?=\?)/)[0];
+if (!dbName.match(/test/i)) throw new Error('WRANING: you are reseeding prod db!');
 
 seeder.connect(dbUrl, { useUnifiedTopology: true }, () => {
 	console.log(`current db: `, dbName)

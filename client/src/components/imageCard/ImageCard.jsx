@@ -29,7 +29,7 @@ function ImageCard({ title, text, link, imageService }) {
 		return () => {
 			source.cancel('Request canceled by user');
 		}
-	}, [imageService])
+	}, [imageService, source])
 
 	return (
 		<Card>
