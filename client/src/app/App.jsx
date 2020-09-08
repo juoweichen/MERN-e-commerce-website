@@ -9,6 +9,7 @@ import Login from '../pages/login/Login';
 import Register from '../pages/register/Register';
 import Logout from '../pages/logout/Logout';
 import NotFound from '../pages/notFound/NotFound';
+import Merch from '../pages/merch/Merch';
 
 import user from '../services/user';
 import AuthContext from '../contexts/auth';
@@ -63,6 +64,7 @@ function App() {
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
             <Route path='/logout' component={Logout} />
+            <Route path='/merch/:merchid' component={Merch} />
             <Route path='/not-found' component={NotFound} />
             <Route exact path='/' component={Shop} />
             <Redirect to='/not-found' />

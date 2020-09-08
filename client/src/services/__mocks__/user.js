@@ -17,5 +17,6 @@ export default {
 				password: '123123'
 			}))
 		)
-	})
+	}),
+	logout: jest.fn()
 }

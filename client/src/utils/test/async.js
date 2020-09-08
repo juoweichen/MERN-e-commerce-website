@@ -3,7 +3,7 @@ import { screen, waitFor, waitForElementToBeRemoved } from '@testing-library/rea
 export function waitForLoadingDone() {
 	// wait for loading gone
 	// NOTE: To avoid act(...) warning!
-	return waitForElementToBeRemoved(() => screen.queryByText(/loading/i))
+	return waitForElementToBeRemoved(() => screen.queryByTestId(/loading/i))
 }
 
 export function waitForErrorMessage(errorTestId) {

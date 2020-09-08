@@ -46,7 +46,7 @@ export default function Shop() {
 		<Fragment>
 			<ShopTron />
 			<Container data-testid='page-shop'>
-				{isLoading ? <p>Loading...</p> :
+				{isLoading ? <></> :
 					<Row>
 						<Col id='list-group' md={2}>
 							<ItemList items={categories} handleOnClick={categoryOnClick} />

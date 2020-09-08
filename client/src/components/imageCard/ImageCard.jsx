@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 
+import Spinner from '../../components/spinner/MySpinner';
 import http from '../../services/http';
 import './ImageCard.css';
 
@@ -35,7 +36,7 @@ function ImageCard({ title, text, link, imageService }) {
 		<Card>
 			<Link to={link} id='merch-page-link'>
 				{isImageLoading ?
-					<p>Image Loading...</p> :
+					<Spinner /> :
 					<Card.Img
 						variant="top"
 						src={imageUrl}
