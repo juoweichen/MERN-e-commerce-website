@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
@@ -10,7 +10,7 @@ import './ImageCard.css';
 function ImageCard({ title, text, link, imageService }) {
 	const [imageUrl, setImageUrl] = useState('');
 	const [isImageLoading, setIsImageLoading] = useState(true);
-	const source = http.getCancelSource();
+	const source = useMemo(() => http.getCancelSource(), []);
 
 	useEffect(() => {
 		async function fetchImageUrl() {
@@ -44,7 +44,7 @@ function ImageCard({ title, text, link, imageService }) {
 						data-testid='card-image' />}
 				<Card.Body>
 					<Card.Title>{title}</Card.Title>
-					{text}
+					<Card.Text>{text}</Card.Text>
 				</Card.Body>
 			</Link>
 		</Card>

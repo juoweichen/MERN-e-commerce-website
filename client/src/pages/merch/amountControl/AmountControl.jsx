@@ -15,7 +15,7 @@ function AmountControl({ addToCart }) {
 	return (
 		<Form>
 			<Selector
-				label='Select number: '
+				label='Select amount: '
 				value={amount}
 				handleChange={handleChange}
 				options={getSequenceNumberArray(10)}

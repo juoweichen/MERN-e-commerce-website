@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types'
 import { Image, Container, Row, Col } from 'react-bootstrap';
 
@@ -16,7 +16,7 @@ function Merch({ match }) {
 	const [imageUrl, setImageUrl] = useState('');
 	const [isLoading, setIsLoading] = useState(true);
 	const [isImageLoading, setIsImageLoading] = useState(true);
-	const source = http.getCancelSource();
+	const source = useMemo(() => http.getCancelSource(), []);
 
 	useEffect(() => {
 		async function fetchMerchById() {
@@ -50,7 +50,7 @@ function Merch({ match }) {
 		return () => {
 			source.cancel('Request canceled by user');
 		}
-	}, [merchid])
+	}, [merchid, source])
 
 	function addToCart(amount) {
 		const curUser = user.getCurrent();

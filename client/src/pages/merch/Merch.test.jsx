@@ -30,7 +30,7 @@ describe('Merch page', () => {
 			expect(screen.getByText('Shirt')).toBeDefined()
 			expect(screen.getByText(/15.99/i)).toBeDefined()
 			// Check amount control components
-			expect(screen.getByLabelText(/select number/i)).toBeDefined()
+			expect(screen.getByLabelText(/select amount/i)).toBeDefined()
 			expect(screen.getByText(/add to cart/i)).toBeDefined()
 		})
 
