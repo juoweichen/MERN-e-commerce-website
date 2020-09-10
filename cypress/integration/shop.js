@@ -65,7 +65,9 @@ describe('Browse shop and merchs page', () => {
 			// amount control
 			cy.get('form').within(() => {
 				cy.get('label').should('contain', 'Select amount');
-				cy.get('select').children().should('have.length', 11);
+				cy.get('select').children()
+					.should('have.value', 0)
+					.should('have.length', 11);
 				cy.contains(/add to cart/i).should('exist');
 			})
 		})

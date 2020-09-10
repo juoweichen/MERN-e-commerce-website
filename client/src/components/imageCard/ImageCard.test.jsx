@@ -20,11 +20,7 @@ describe('ImageCard unit testing', () => {
 		history = renderWithRouter(
 			<ImageCard
 				title='Test title'
-				text={
-					<div>
-						<p>Description of the item</p>
-					</div>
-				}
+				text='Description of the item'
 				link={newLink}
 				imageService={mockImageService}
 			/>, oldLink);

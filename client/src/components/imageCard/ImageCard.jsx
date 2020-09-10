@@ -54,7 +54,7 @@ function ImageCard({ title, text, link, imageService }) {
 ImageCard.propTypes = {
 	imgSrc: PropTypes.string,
 	title: PropTypes.string.isRequired,
-	text: PropTypes.object.isRequired,
+	text: PropTypes.string.isRequired,
 	link: PropTypes.string.isRequired
 }
 

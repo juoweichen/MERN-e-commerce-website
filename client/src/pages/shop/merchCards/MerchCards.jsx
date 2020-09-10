@@ -14,12 +14,7 @@ export default function MerchCards({ merchs }) {
 						link={`/merch/${merch._id}`}
 						title={merch.name}
 						imageService={(source) => getImageByMerchId(merch._id, source)}
-						text={
-							<div>
-								<p>{`$${merch.price}`}</p>
-								{/* <p>{`${merch.description}`}</p> */}
-							</div>
-						}
+						text={`$${merch.price}`}
 					/>)}
 			</Row>
 		</Container>

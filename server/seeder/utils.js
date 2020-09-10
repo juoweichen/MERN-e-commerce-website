@@ -6,9 +6,9 @@ module.exports.getDb = () => {
 
 	// Extract db name from DB_URL
 	const dbName = dbUrl.match(/(?<=.net\/)(.*?)(?=\?)/)[0];
+	console.log(`current db: `, dbName)
 	if (!dbName.match(/test/i))
 		throw new Error('WRANING: you are reseeding prod db!');
-	console.log(`current db: `, dbName)
 
 	return dbUrl;
 }

@@ -7,7 +7,7 @@ import { useAuth } from "../../contexts/auth";
 import './Header.css';
 
 export default function Header() {
-	const { user } = useAuth();
+	const auth = useAuth();
 
 	return (
 		<header className='header' data-testid='component-header'>
@@ -15,7 +15,7 @@ export default function Header() {
 				<Container>
 					{/* Admin Panel*/}
 					<Col>
-						{user && user.isAdmin &&
+						{auth.isLogin && auth.user.isAdmin &&
 							<Nav.Link href="/admin" data-testid='link-admin'>
 								<FontAwesomeIcon id='icon-admin' icon={faTools} />
 									ADMIN
@@ -34,20 +34,20 @@ export default function Header() {
 					<Col>
 						<Row>
 							<Col></Col>
-							{user ?
+							{auth.isLogin ?
 								<Col xs='auto'>
-									<p id='welcome-user'>Welcome, {user.username}</p>
+									<p id='welcome-user'>Welcome, {auth.user.username}</p>
 								</Col> :
 								<Col></Col>
 							}
-							{user &&
+							{auth.isLogin &&
 								<Col>
 									<Button variant="primary" data-testid='button-logout' href='/logout'>
 										logout
 										</Button>
 								</Col>
 							}
-							{!user &&
+							{!auth.isLogin &&
 								<Col>
 									<Button variant="primary" data-testid='button-login' href='/login'>
 										login
@@ -56,7 +56,7 @@ export default function Header() {
 							}
 							{/* Cart */}
 							<Col>
-								<Nav.Link href={user ? `/cart/${user.cartid}` : `/cart/no-user`} data-testid='link-cart'>
+								<Nav.Link href={auth.isLogin ? `/cart/${auth.user.cartid}` : `/cart/no-user`} data-testid='link-cart'>
 									<FontAwesomeIcon id='icon-cart' icon={faCartArrowDown} />
 								</Nav.Link>
 							</Col>

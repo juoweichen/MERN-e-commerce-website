@@ -10,9 +10,11 @@ import Register from '../pages/register/Register';
 import Logout from '../pages/logout/Logout';
 import NotFound from '../pages/notFound/NotFound';
 import Merch from '../pages/merch/Merch';
+import Cart from '../pages/cart/Cart';
 
 import user from '../services/user';
 import AuthContext from '../contexts/auth';
+import ProtectedRoute from '../components/protectedRoute/ProtectedRoute';
 import './App.css';
 
 function App() {
@@ -65,6 +67,12 @@ function App() {
             <Route path='/register' component={Register} />
             <Route path='/logout' component={Logout} />
             <Route path='/merch/:merchid' component={Merch} />
+            <ProtectedRoute
+              path='/cart/:cartid'
+              component={Cart}
+              redirectPath='/login'
+              authLevel={2}
+            />
             <Route path='/not-found' component={NotFound} />
             <Route exact path='/' component={Shop} />
             <Redirect to='/not-found' />
