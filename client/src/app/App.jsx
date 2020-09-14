@@ -60,8 +60,8 @@ function App() {
   return (
     <div className="App">
       <AuthContext.Provider value={authState}>
-        <Header />
         <BrowserRouter>
+          <Header />
           <Switch>
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
@@ -77,8 +77,8 @@ function App() {
             <Route exact path='/' component={Shop} />
             <Redirect to='/not-found' />
           </Switch>
+          <Footer />
         </BrowserRouter>
-        <Footer />
       </AuthContext.Provider>
     </div>
   );

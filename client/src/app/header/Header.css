@@ -2,7 +2,12 @@
   width: 100%;
 }
 
-#username {
+.header #brand-link {
+  color: black;
+  font-size: larger;
+}
+
+.header #welcome-user {
   margin-top: 0.5rem;
   margin-bottom: 0rem;
 }

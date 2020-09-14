@@ -67,6 +67,6 @@ For more detail usage of custom command lines, I recommend checking the package.
 
 ## Test code coverage
 server coverage<br>
-<img src="https://github.com/pootitan/worldwidev3/blob/master/README_img/server-coverage" height="50%" width="50%"><br>
+<img src="https://github.com/pootitan/worldwidev3/blob/master/README_img/server-coverage.png" height="50%" width="50%"><br>
 client coverage<br>
-<img src="https://github.com/pootitan/worldwidev3/blob/master/README_img/client-coverage" height="50%" width="50%"><br>
+<img src="https://github.com/pootitan/worldwidev3/blob/master/README_img/client-coverage.png" height="50%" width="50%"><br>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
+import { renderWithRouter } from '../../utils/test/router';
 import Header from './Header';
 
 jest.mock('../../contexts/auth');
@@ -9,7 +10,7 @@ describe('Rendering', () => {
 	const welcomeMessageReg = /(?=.*\welcome\b)(?=.*\btestuser\b).*/i;
 
 	beforeEach(() => {
-		render(<Header />);
+		renderWithRouter(<Header />);
 	})
 
 	test('should render brand link, login button, cart link', () => {

@@ -1,7 +1,8 @@
 import React from 'react'
-import { Container, Row, Col, Nav, Navbar, Button } from 'react-bootstrap';
+import { Container, Row, Col, Navbar, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobeAsia, faCartArrowDown, faTools } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 import { useAuth } from "../../contexts/auth";
 import './Header.css';
@@ -16,19 +17,19 @@ export default function Header() {
 					{/* Admin Panel*/}
 					<Col>
 						{auth.isLogin && auth.user.isAdmin &&
-							<Nav.Link href="/admin" data-testid='link-admin'>
+							<Link to="/admin" data-testid='link-admin'>
 								<FontAwesomeIcon id='icon-admin' icon={faTools} />
 									ADMIN
-								</Nav.Link>
+								</Link>
 						}
 					</Col>
 					{/* Brand*/}
 					<Col xs='auto'>
-						<Navbar.Brand href="/" data-testid='link-brand'>
+						<Link to="/" id='brand-link' data-testid='link-brand'>
 							Clique
 								<FontAwesomeIcon id='icon-globalAsia' icon={faGlobeAsia} />
 								WorldWide
-							</Navbar.Brand>
+						</Link>
 					</Col>
 					{/* user panel */}
 					<Col>
@@ -56,9 +57,10 @@ export default function Header() {
 							}
 							{/* Cart */}
 							<Col>
-								<Nav.Link href={auth.isLogin ? `/cart/${auth.user.cartid}` : `/cart/no-user`} data-testid='link-cart'>
+								<Link data-testid='link-cart'
+									to={auth.isLogin ? `/cart/${auth.user.cartid}` : `/cart/no-user`}>
 									<FontAwesomeIcon id='icon-cart' icon={faCartArrowDown} />
-								</Nav.Link>
+								</Link>
 							</Col>
 						</Row>
 					</Col>

@@ -1,32 +1,32 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
-import user from "../../services/user";
+import { useAuth } from "../../contexts/auth";
 
 /**
  * Check authLevel of current user, 
  * return true if user has enough auth to access this page
  * @param {*} authLevel 
  */
-function authCheck(authLevel) {
-	const curUser = user.getCurrent();
-
+function authCheck(isLogin, user, authLevel) {
 	switch (authLevel) {
 		case 1:
-			return curUser && curUser.isAdmin ? true : false;
+			return isLogin && user.isAdmin ? true : false;
 		case 2:
-			return curUser ? true : false;
+			return isLogin ? true : false;
 		default:
 			return false;
 	}
 }
 
 const ProtectedRoute = ({ redirectPath, authLevel, component: Component, render, ...rest }) => {
+	const auth = useAuth();
+
 	return (
 		<Route
 			{...rest}
 			render={props => {
-				if (!authCheck(authLevel)) {
+				if (!authCheck(auth.isLogin, auth.user, authLevel)) {
 					authLevel === 1 ?
 						alert('Higher authentication required') :
 						alert('You need to login before access this page');
