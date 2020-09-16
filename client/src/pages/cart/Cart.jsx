@@ -5,8 +5,9 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import { getCartById, updateCart } from '../../services/cart';
 import user from '../../services/user';
 import Spinner from '../../components/spinner/MySpinner';
-
 import CartItem from './cartItem/CartItem';
+import './Cart.css';
+
 
 export default function Cart({ match }) {
 	const cartid = match.params.cartid;
@@ -97,18 +98,25 @@ export default function Cart({ match }) {
 			{isLoading ? <Spinner /> :
 				<Container data-testid='page-cart'>
 					<Row>
-						<Col>Total amount: {cart.totalAmount}</Col>
-						<Col>Total price: {cart.totalPrice}</Col>
-					</Row>
-					{cart.items.map(item =>
-						<CartItem
-							key={item.merchid}
-							item={item}
-							updateItem={updateItem}
-							handleDelete={deleteItem} />
-					)}
-					<Row>
-						<Button href='/'>Check out</Button>
+						<Col md={{ span: 10, offset: 1 }}>
+							<Row className='total'>
+								<p>Total amount: {cart.totalAmount}</p>
+							</Row>
+							{cart.items.map(item =>
+								<CartItem
+									className='justify-content-between'
+									key={item.merchid}
+									item={item}
+									updateItem={updateItem}
+									handleDelete={deleteItem} />
+							)}
+							<Row className='justify-content-end total'>
+								<p>Total price: {cart.totalPrice}</p>
+							</Row>
+							<Row className='justify-content-end'>
+								<Button href='/'>Check out</Button>
+							</Row>
+						</Col>
 					</Row>
 				</Container>
 			}

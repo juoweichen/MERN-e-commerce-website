@@ -37,11 +37,14 @@ function ImageCard({ title, text, link, imageService }) {
 			<Link to={link} id='merch-page-link'>
 				{isImageLoading ?
 					<Spinner /> :
-					<Card.Img
-						variant="top"
-						src={imageUrl}
-						alt={title}
-						data-testid='card-image' />}
+					<div className='image-card-frame'>
+						<Card.Img
+							variant="top"
+							src={imageUrl}
+							alt={title}
+							data-testid='card-image' />
+					</div>
+				}
 				<Card.Body>
 					<Card.Title>{title}</Card.Title>
 					<Card.Text>{text}</Card.Text>

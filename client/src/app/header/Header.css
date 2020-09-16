@@ -11,3 +11,7 @@
   margin-top: 0.5rem;
   margin-bottom: 0rem;
 }
+
+.header #cart-icon {
+  font-size: 1.5rem;
+}

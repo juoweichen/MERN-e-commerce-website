@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { Form } from 'react-bootstrap';
+import { Form, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import joi from 'joi';
 
 import { inputWrapper } from '../../components/input/Input';
 import { submitWrapper } from '../../components/submit/Submit';
 import user from '../../services/user';
+
+import './Login.css';
 
 export default function Login() {
 	const [account, setAccount] = useState({
@@ -51,13 +53,21 @@ export default function Login() {
 	}
 
 	return (
-		<Form className='container' data-testid='page-login'>
-			{inputWrapper('email', 'email', 'Email', state)}
-			{inputWrapper('password', 'password', 'Password', state)}
-			<Link to="/register" className='register-link'>
-				Not register yet?
-			</Link>
-			{submitWrapper('Login', state, schema, doSubmit)}
-		</Form>
+		<Form data-testid='page-login'>
+			<Container className='form-container'>
+				<Row>
+					<Col md={{ span: 8, offset: 2 }}>
+						{inputWrapper('email', 'email', 'Email', state)}
+						{inputWrapper('password', 'password', 'Password', state)}
+						<Row className='row justify-content-between'>
+							{submitWrapper('Login', state, schema, doSubmit)}
+							<Link to="/register" className='register-link'>
+								Not register yet?
+							</Link>
+						</Row>
+					</Col>
+				</Row>
+			</Container>
+		</Form >
 	)
 }

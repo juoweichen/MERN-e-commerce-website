@@ -4,9 +4,24 @@
 }
 
 .card {
-	margin: 0.5rem;
-	max-width: 30%;
+	margin: 0.3rem;
+	border-radius: 0rem !important;
 	.card-body {
 		padding: 0.2rem;
+	}
+	.image-card-frame {
+		width: 100%;
+		padding-top: 100%; /* 1:1 Aspect Ratio */
+  	position: relative; /* If you want text inside of it */
+	}
+	.card-img-top {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		transform: translateY(-50%); // Center the image
+		-ms-transform: translateY(-50%);
+		top: 50%;
 	}
 }

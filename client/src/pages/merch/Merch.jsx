@@ -120,7 +120,7 @@ function infoCol(merch, addToCart) {
 				</Col>
 			</Row>
 			<Row>
-				<Col>
+				<Col md={4}>
 					<AmountControl addToCart={addToCart} />
 				</Col>
 			</Row>

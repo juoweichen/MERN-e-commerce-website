@@ -20,17 +20,19 @@ function CartItem({ item, updateItem, handleDelete }) {
 	}
 
 	return (
-		<Row className='cart-item'>
+		<Row className='cart-item align-items-center'>
 			<Col>{curItem.name}</Col>
 			<Col>{curItem.price}</Col>
-			<Selector
-				label="select amount: "
-				value={curItem.amount}
-				handleChange={handleChange}
-				options={getSequenceNumberArray(10)}
-			/>
-			<Col>Total: {curItem.subTotalPrice}</Col>
 			<Col>
+				<Selector
+					label="select amount: "
+					value={curItem.amount}
+					handleChange={handleChange}
+					options={getSequenceNumberArray(10)}
+				/>
+			</Col>
+			<Col>Total: {curItem.subTotalPrice}</Col>
+			<Col md={1}>
 				<Button
 					variant='danger'
 					onClick={e => handleDelete(e, curItem)}>

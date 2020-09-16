@@ -57,7 +57,7 @@ export default function Header() {
 							}
 							{/* Cart */}
 							<Col>
-								<Link data-testid='link-cart'
+								<Link id='cart-icon' data-testid='link-cart'
 									to={auth.isLogin ? `/cart/${auth.user.cartid}` : `/cart/no-user`}>
 									<FontAwesomeIcon id='icon-cart' icon={faCartArrowDown} />
 								</Link>

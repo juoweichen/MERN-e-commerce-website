@@ -7,7 +7,7 @@ import { getImageByMerchId } from '../../../services/image';
 export default function MerchCards({ merchs }) {
 	return (
 		<Container>
-			<Row xs={1} sm={3} xl={5}>
+			<Row xs={1} md={3} lg={5}>
 				{merchs.map(merch =>
 					<ImageCard
 						key={merch._id}
