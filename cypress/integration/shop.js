@@ -24,9 +24,12 @@ describe('Browse shop and merchs page', () => {
 		})
 
 		it('should render merch name, price and image on each merch card', () => {
+			// assert card content
 			cy.get('.card').children().should('have.id', 'merch-page-link');
-			cy.get('#merch-page-link').children().should('have.class', 'card-img-top');
 			cy.get('#merch-page-link').children().should('have.class', 'card-body');
+			// assert image exist
+			cy.get('#merch-page-link').children().should('have.class', 'image-card-frame');
+			cy.get('.image-card-frame').children().should('have.class', 'card-img-top');
 			// assert T-shirt card
 			cy.get('.card-img-top[alt="T-shirt"]').should('exist');
 			cy.get('.card-body>.card-title').first().should('contain', 'T-shirt');
