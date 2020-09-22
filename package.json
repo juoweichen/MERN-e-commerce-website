@@ -23,8 +23,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "seed:user": "cd server && npm run seed:user",
-    "seed:merch": "cd server && npm run seed:merch",
-    "coverage": "nyc npm run test:server"
+    "seed:merch": "cd server && npm run seed:merch"
   },
   "repository": {
     "type": "git",

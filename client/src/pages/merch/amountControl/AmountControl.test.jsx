@@ -24,13 +24,13 @@ describe('<AmountControl />', () => {
 		it('should add 0 amount to cart if user not select any number', () => {
 			user.click(/add to cart/i);
 			expect(addToCart).toHaveBeenCalledTimes(1);
-			expect(addToCart).toHaveBeenCalledWith("0");
+			expect(addToCart).toHaveBeenCalledWith(0);
 		})
 		it('should add 5 amount to cart if user select number 5', () => {
 			user.select('select-single', "5");
 			user.click(/add to cart/i);
 			expect(addToCart).toHaveBeenCalledTimes(1);
-			expect(addToCart).toHaveBeenCalledWith("5");
+			expect(addToCart).toHaveBeenCalledWith(5);
 		})
 	})
 })

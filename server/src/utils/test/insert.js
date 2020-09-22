@@ -40,6 +40,9 @@ async function insertTestMerch({ name, category, price, description }) {
 	return newMerch;
 }
 
+/**
+ * Only return an object of cart item
+ */
 function getTestCartItem({ merch, amount }) {
 	return {
 		merchid: merch._id,

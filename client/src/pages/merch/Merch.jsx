@@ -72,10 +72,7 @@ function Merch({ match }) {
 				if (res.status === 200)
 					return alert('Add to Cart success :)')
 			})
-			.catch(err => {
-				console.log(err)
-				return alert('add to cart error :(');
-			});
+			.catch(err => alert(err));
 	}
 
 	return (

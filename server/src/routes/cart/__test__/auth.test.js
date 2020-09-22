@@ -100,7 +100,7 @@ describe(`${endPoint}`, () => {
 			expect(res.status).toBe(400);
 		})
 	})
-	describe('PUT /:id - add items to cart', () => {
+	describe('POST /:id - add items to cart', () => {
 		let sendCartItem;
 
 		beforeEach(() => {

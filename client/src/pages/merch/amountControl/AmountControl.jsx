@@ -20,7 +20,7 @@ function AmountControl({ addToCart }) {
 				handleChange={handleChange}
 				options={getSequenceNumberArray(10)}
 			/>
-			<Button variant="light" onClick={() => addToCart(amount)}>Add to cart</Button>
+			<Button variant="light" onClick={() => addToCart(parseInt(amount))}>Add to cart</Button>
 		</Form>
 	)
 }
