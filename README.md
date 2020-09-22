@@ -1,4 +1,4 @@
-# Clique Worldwide v3 ![Travis CI](https://travis-ci.com/pootitan/worldwidev3.svg?token=Vumo1u1aLNVgz9Ws1bs8&branch=master)
+# MERN E-commerce website ![Travis CI](https://travis-ci.com/pootitan/worldwidev3.svg?token=Vumo1u1aLNVgz9Ws1bs8&branch=master)
  
 [Heroku project link](https://worldwidev3.herokuapp.com/)
  
