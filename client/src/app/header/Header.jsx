@@ -34,7 +34,6 @@ export default function Header() {
 					{/* user panel */}
 					<Col>
 						<Row>
-							<Col></Col>
 							{auth.isLogin ?
 								<Col xs='auto'>
 									<p id='welcome-user'>Welcome, {auth.user.username}</p>

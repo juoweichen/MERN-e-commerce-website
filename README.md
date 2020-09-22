@@ -66,7 +66,8 @@ npm test
 For more detail usage of custom command lines, I recommend checking the package.json file at the root directory
 
 ## Test code coverage
-server coverage<br>
+server coverage: 92%<br>
 <img src="https://github.com/pootitan/worldwidev3/blob/master/README_img/server-coverage.png" height="50%" width="50%"><br>
-client coverage<br>
+client coverage: 77%<br>
 <img src="https://github.com/pootitan/worldwidev3/blob/master/README_img/client-coverage.png" height="50%" width="50%"><br>
+Many testing code from e2e test overlay with client-side testing<br>

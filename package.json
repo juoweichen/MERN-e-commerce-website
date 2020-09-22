@@ -23,7 +23,8 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "seed:user": "cd server && npm run seed:user",
-    "seed:merch": "cd server && npm run seed:merch"
+    "seed:merch": "cd server && npm run seed:merch",
+    "coverage": "nyc npm run test:server"
   },
   "repository": {
     "type": "git",
@@ -45,6 +46,7 @@
     "concurrently": "^5.3.0"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.8.1",
     "cross-env": "^7.0.2",
     "cypress": "^5.0.0",
     "start-server-and-test": "^1.11.3"
