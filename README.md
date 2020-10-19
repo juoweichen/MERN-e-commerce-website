@@ -1,6 +1,6 @@
 # MERN E-commerce website ![Travis CI](https://travis-ci.com/pootitan/worldwidev3.svg?token=Vumo1u1aLNVgz9Ws1bs8&branch=master)
  
-[Heroku project link](https://worldwidev3.herokuapp.com/)
+[Heroku project link](https://mern-e-commerce-website.herokuapp.com/)
  
 ## Project objectives
 The demo project for MERN full-stack website practicing.
