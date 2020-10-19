@@ -1,4 +1,7 @@
 describe('Browse shop and merchs page', () => {
+	const merchName = 'T-shirt';
+	const merchPrice = 13.99;
+
 	before(() => {
 		// seeding
 		cy.exec('npm run seed:merch')
@@ -31,9 +34,9 @@ describe('Browse shop and merchs page', () => {
 			cy.get('#merch-page-link').children().should('have.class', 'image-card-frame');
 			cy.get('.image-card-frame').children().should('have.class', 'card-img-top');
 			// assert T-shirt card
-			cy.get('.card-img-top[alt="T-shirt"]').should('exist');
-			cy.get('.card-body>.card-title').first().should('contain', 'T-shirt');
-			cy.get('.card-body>.card-text').first().should('contain', '13.99');
+			cy.get(`.card-img-top[alt="${merchName}"]`).should('exist');
+			cy.get('.card-body>.card-title').should('contain', merchName);
+			cy.get('.card-body>.card-text').should('contain', merchPrice);
 		})
 
 		it('should render merchs by corresponding category', () => {
@@ -52,18 +55,18 @@ describe('Browse shop and merchs page', () => {
 	describe('merch rendering', () => {
 		it('should direct to merch page if user click merch card', () => {
 			// redirect to T-shirt merch page
-			cy.get('#merch-page-link').first().click();
+			cy.get('.card').contains(merchName).click();
 			cy.url().should('include', 'merch');
 		})
 
 		it('should render merch name, price, image, description and amount select', () => {
 			// direct to T-shirt page
-			cy.get('#merch-page-link').first().click();
+			cy.get('.card').contains(merchName).click();
 			cy.get('#image-col').should('exist');
 			cy.get('#info-col').should('exist');
 			cy.get('img[alt=merch-image]').should('exist');
-			cy.get('#info-col').should('contain', 'T-shirt');
-			cy.get('#info-col').should('contain', '$13.99');
+			cy.get('#info-col').should('contain', merchName);
+			cy.get('#info-col').should('contain', merchPrice);
 			cy.get('#info-col').should('contain', 'description');
 			// amount control
 			cy.get('form').within(() => {

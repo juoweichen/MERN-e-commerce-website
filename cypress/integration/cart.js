@@ -48,7 +48,7 @@ describe('Cart', () => {
 		// NOTE: To avoid reseeding db, I test all cart operation here
 		it('should allow user to add merchs to cart on merch page', () => {
 			// redirect to T-shirt merch page
-			cy.get('#merch-page-link').first().click();
+			cy.get('.card').contains(merchName).click();
 			cy.url().should('include', 'merch');
 			// Add 3 t-shirts to cart
 			cy.get('select').select("3");
@@ -71,7 +71,7 @@ describe('Cart', () => {
 
 		it('should avoid user from adding a kind of merch more then 10 in cart', () => {
 			// redirect to T-shirt merch page
-			cy.get('#merch-page-link').first().click();
+			cy.get('.card').contains(merchName).click();
 			cy.url().should('include', 'merch');
 			// Add 9 t-shirts to cart
 			cy.get('select').select("9");
