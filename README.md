@@ -68,6 +68,6 @@ For more detail usage of custom command lines, I recommend checking the package.
 ## Test code coverage
 server coverage: 92%<br>
 <img src="https://github.com/pootitan/worldwidev3/blob/master/README_img/server-coverage.png" height="50%" width="50%"><br>
-client coverage: 77%<br>
+client coverage: 77%. NOTE: Many testing code from e2e test overlay with client-side testing<br>
 <img src="https://github.com/pootitan/worldwidev3/blob/master/README_img/client-coverage.png" height="50%" width="50%"><br>
-Many testing code from e2e test overlay with client-side testing<br>
+
