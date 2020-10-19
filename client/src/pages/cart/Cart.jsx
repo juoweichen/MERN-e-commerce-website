@@ -111,7 +111,7 @@ export default function Cart({ match }) {
 									handleDelete={deleteItem} />
 							)}
 							<Row className='justify-content-end total'>
-								<p>Total price: {cart.totalPrice}</p>
+								<p>Total price: {cart.totalPrice.toFixed(2)}</p>
 							</Row>
 							<Row className='justify-content-end'>
 								<Button href='/'>Check out</Button>

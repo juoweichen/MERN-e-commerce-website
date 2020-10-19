@@ -31,7 +31,7 @@ function CartItem({ item, updateItem, handleDelete }) {
 					options={getSequenceNumberArray(10)}
 				/>
 			</Col>
-			<Col>Total: {curItem.subTotalPrice}</Col>
+			<Col>Total: {curItem.subTotalPrice.toFixed(2)}</Col>
 			<Col md={1}>
 				<Button
 					variant='danger'
