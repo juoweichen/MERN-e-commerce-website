@@ -4,7 +4,7 @@ deploy:
   provider: heroku
   api_key:
     secure: cnks81rMiY2NVXPmnmAjmDlx7KOB/nmJP9OECdlJuGPkcIVwK2iJ3WNLQDvtYIXiEI/TbdZtkd1itHibQLGZi1rWh1QCZztpWSwC9JtLIs03VKkurZUwBQE5Br/F6wg8L3GNAPr5VP3B4PI6L1uQvO0oQFMSDbvIFFJag0IJc7be+tjJcLxkCGDApszFDoUW4hJANduPcds1b06Uw6WINt5HqDXK8HhxgLXT1dTF5BoSFSCReZ+BWFp7T95CI/6cTp//yzHbKF4SYFWkQp/2XTjVfTkZFSaPqJhyCxOTS0Arch9Any4rx7smV9vIZSriYI1h3EH69dGd2LXnB1iW7qZBl6RqqLxelwHKRNXhgr2bNXNH8bvdToHty+dYF1dTS1b8Zi57KKJm22OLJ0NPxWThm7kOo64bRhUFEyuZcPxl1AICTxbW8LegVRagqW0bwwz9J5RA61h/LN6onUaW/zC5wRU/vKnBSKJ7kr2nKlvYbngB38Y7TvBW4CJxEY2h6hnxEyZaOfBGGKSga+PQmNLOkGJAGGkO0mEiew6G+P2T9tqmNeWQoxthXrihVkNDRNinxLIC0De4HizrDvj0EW07c3HxTB9DohDVZixo5Qe9mcp2bJCpmKNGxU/2zdOroiPY/lcFJYRbOlS6TeYRUj8cdLToj4EcCc8PDUUj0sQ=
-  app: MERN-e-commerce-website
+  app: mern-e-commerce-website
   on:
     repo: pootitan/MERN-e-commerce-website
   skip_cleanup: 'true'
