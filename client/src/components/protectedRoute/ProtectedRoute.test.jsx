@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen, waitFor } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { Switch, Route } from 'react-router-dom';
 
 import { renderWithRouter } from '../../utils/test/router';

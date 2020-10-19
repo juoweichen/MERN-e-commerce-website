@@ -19,6 +19,7 @@ import './App.css';
 
 function App() {
   const [authState, setAuthState] = useState({
+    isLoading: true,
     isLogin: false,
     user: null,
     jwt: ''
@@ -26,6 +27,7 @@ function App() {
 
   const loginUser = useCallback((response) => {
     setAuthState({
+      isLoading: false,
       isLogin: true,
       user: response.data,
       jwt: response.headers["x-auth-token"]
@@ -34,6 +36,16 @@ function App() {
 
   const logoutUser = useCallback(() => {
     setAuthState({
+      isLoading: false,
+      isLogin: false,
+      user: null,
+      jwt: ''
+    })
+  }, [])
+
+  const noUser = useCallback(() => {
+    setAuthState({
+      isLoading: false,
       isLogin: false,
       user: null,
       jwt: ''
@@ -55,7 +67,8 @@ function App() {
     }
     const curJwt = user.getJwt();
     if (curJwt) verifyUserJwt(curJwt);
-  }, [loginUser, logoutUser])
+    else noUser();
+  }, [loginUser, logoutUser, noUser])
 
   return (
     <div className="App">

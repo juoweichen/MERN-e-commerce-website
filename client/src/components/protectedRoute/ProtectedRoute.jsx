@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
 import { useAuth } from "../../contexts/auth";
+import Spinner from '../../components/spinner/MySpinner';
 
 /**
  * Check authLevel of current user, 
@@ -23,25 +24,28 @@ const ProtectedRoute = ({ redirectPath, authLevel, component: Component, render,
 	const auth = useAuth();
 
 	return (
-		<Route
-			{...rest}
-			render={props => {
-				if (!authCheck(auth.isLogin, auth.user, authLevel)) {
-					authLevel === 1 ?
-						alert('Higher authentication required') :
-						alert('You need to login before access this page');
-					return (
-						<Redirect
-							to={{
-								pathname: redirectPath,
-								state: { from: props.location }
-							}}
-						/>
-					);
-				}
-				return Component ? <Component {...props} /> : render(props);
-			}}
-		/>
+		<div>
+			{auth.isLoading ? <Spinner /> :
+				<Route
+					{...rest}
+					render={props => {
+						if (!authCheck(auth.isLogin, auth.user, authLevel)) {
+							authLevel === 1 ?
+								alert('Higher authentication required') :
+								alert('You need to login before access this page');
+							return (
+								<Redirect
+									to={{
+										pathname: redirectPath,
+										state: { from: props.location }
+									}}
+								/>
+							);
+						}
+						return Component ? <Component {...props} /> : render(props);
+					}}
+				/>}
+		</div>
 	);
 };
 
