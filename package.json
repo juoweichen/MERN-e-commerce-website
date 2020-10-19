@@ -19,6 +19,7 @@
     "test:server": "cd server && npm test",
     "test:client": "cd client && npm test",
     "test:e2e": "npm run heroku-postbuild && start-server-and-test start http://localhost:5000 cy:run",
+    "heroku-prebuild": "npm run install:all",
     "heroku-postbuild": "cd client && npm run build",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
