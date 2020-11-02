@@ -1,0 +1,6 @@
+.jumbotron {
+  background-image: url("tron.png");
+  background-repeat: no-repeat;
+  background-color: white !important;
+  background-position: center;
+}
